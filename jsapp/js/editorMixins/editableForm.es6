@@ -660,14 +660,6 @@ export default assign({
 
         <bem.FormBuilderHeader__row m={'secondary'} >
           <bem.FormBuilderHeader__cell m={'toolsButtons'} >
-            <bem.FormBuilderHeader__button
-              m={['preview', {previewdisabled: previewDisabled}]}
-              onClick={this.previewForm}
-              disabled={previewDisabled}
-              data-tip={t('Preview form')}
-            >
-              <i className='k-icon-view' />
-            </bem.FormBuilderHeader__button>
 
             { showAllAvailable &&
               <bem.FormBuilderHeader__button m={['show-all', {
@@ -879,7 +871,7 @@ export default assign({
     var docTitle = this.state.name || t('Untitled');
 
     return (
-      <DocumentTitle title={`${docTitle} | KoboToolbox`}>
+      <DocumentTitle title={`${docTitle} | ScanCollect`}>
         <ui.Panel m={['transparent', 'fixed']}>
           {this.renderAside()}
 

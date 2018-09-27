@@ -1,13 +1,13 @@
-{% load i18n %}
-{% trans "Thanks for signing up with KoBoToolbox!" %}
+¡Gracias por registrarse en ScanCollect!
 
-{% trans "Confirming your account will give you full access to KoBoToolbox applications. Please visit the following url to finish activation of your new account." %}
+La confirmación de su cuenta le dará acceso completo a las aplicaciones de ScanCollect. Visite la siguiente url para finalizar la activación de su nueva cuenta.
 
 {{ user }}
 
 {{ kpi_protocol }}://{{ site.domain }}/accounts/activate/{{activation_key}}/
 
-{% trans "Please visit http://help.kobotoolbox.org to find information on how to get started. There you can also post questions to the community (recommended) or to us directly." %}
+Visite https://scanterra.com/capacitaciones/ para encontrar información sobre cómo comenzar. Allí también puede publicar preguntas .
 
-{% trans "Best," %}
-KoBoToolbox
+Muchas gracias!!
+
+ScanTerra

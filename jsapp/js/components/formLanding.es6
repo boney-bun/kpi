@@ -248,13 +248,6 @@ export class FormLanding extends React.Component {
                   <button className='copy mdl-button mdl-button--colored'>{t('Copy')}</button>
                 </CopyToClipboard>
               }
-              {chosenMethod != 'iframe_url' && chosenMethod != 'android' &&
-                <a className='collect-link mdl-button mdl-button--colored'
-                  target='_blank'
-                  href={this.state.deployment__links[chosenMethod]}>
-                  {t('Open')}
-                </a>
-              }
               { chosenMethod == 'android' &&
                 <a className='collect-link mdl-button mdl-button--colored'
                   target='_blank'
@@ -334,12 +327,6 @@ export class FormLanding extends React.Component {
             <i className='k-icon-edit' />
           </bem.FormView__link>
         }
-
-        <bem.FormView__link m='preview'
-          onClick={this.enketoPreviewModal}
-          data-tip={t('Preview')}>
-          <i className='k-icon-view' />
-        </bem.FormView__link>
 
         {userCanEdit &&
           <bem.FormView__link
@@ -457,7 +444,7 @@ export class FormLanding extends React.Component {
     }
 
     return (
-      <DocumentTitle title={`${docTitle} | KoboToolbox`}>
+      <DocumentTitle title={`${docTitle} | ScanCollect`}>
         <bem.FormView m='form'>
           <bem.FormView__row>
             <bem.FormView__cell m={['columns', 'first']}>

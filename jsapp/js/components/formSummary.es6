@@ -229,11 +229,6 @@ class FormSummary extends React.Component {
               <i className='fa fa-angle-right' />
           </Link>
         }
-        <bem.PopoverMenu__link onClick={this.enketoPreviewModal}>
-          <i className='k-icon-view' />
-          {t('Preview form')}
-          <i className='fa fa-angle-right' />
-        </bem.PopoverMenu__link>
       </bem.FormView__cell>
     );
   }
@@ -342,7 +337,7 @@ class FormSummary extends React.Component {
     }
 
     return (
-      <DocumentTitle title={`${docTitle} | KoboToolbox`}>
+      <DocumentTitle title={`${docTitle} | ScanCollect`}>
         <bem.FormView m='summary'>
           <bem.FormView__column m='left'>
             {(this.state.settings && (this.state.settings.country || this.state.settings.sector || this.state.settings.description)) &&

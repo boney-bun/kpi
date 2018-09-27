@@ -695,7 +695,7 @@ class ProjectSettings extends React.Component {
               onChange={this.onShareMetadataChange}
             />
             <label htmlFor='share-metadata'>
-              {t('Help KoboToolbox improve this product by sharing the sector and country where this project will be deployed.')}
+              {t('Help ScanCollect improve this product by sharing the sector and country where this project will be deployed.')}
               &nbsp;
               {t('All the information is submitted anonymously, and will not include the project name or description listed above.')}
             </label>

@@ -1148,7 +1148,7 @@ class Reports extends React.Component {
 
     if (this.state.reportData && reportData.length === 0) {
       return (
-        <DocumentTitle title={`${docTitle} | KoboToolbox`}>
+        <DocumentTitle title={`${docTitle} | ScanCollect`}>
           <bem.ReportView>
             <bem.Loading>
               <bem.Loading__inner>
@@ -1161,7 +1161,7 @@ class Reports extends React.Component {
     }
 
     return (
-      <DocumentTitle title={`${docTitle} | KoboToolbox`}>
+      <DocumentTitle title={`${docTitle} | ScanCollect`}>
         <bem.ReportView>
           {this.renderReportButtons()}
 

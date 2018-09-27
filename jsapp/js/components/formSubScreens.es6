@@ -107,7 +107,7 @@ export class FormSubScreens extends React.Component {
     var docTitle = this.state.name || t('Untitled');
 
     return (
-        <DocumentTitle title={`${docTitle} | KoboToolbox`}>
+        <DocumentTitle title={`${docTitle} | ScanCollect`}>
           <bem.FormView>
             <bem.FormView__cell m='iframe'>
               <iframe src={iframeUrl} />
@@ -119,7 +119,7 @@ export class FormSubScreens extends React.Component {
   renderSettingsEditor(iframeUrl) {
     var docTitle = this.state.name || t('Untitled');
     return (
-        <DocumentTitle title={`${docTitle} | KoboToolbox`}>
+        <DocumentTitle title={`${docTitle} | ScanCollect`}>
           <bem.FormView m='form-settings'>
             <ProjectSettings
               context={PROJECT_SETTINGS_CONTEXTS.EXISTING}
@@ -133,7 +133,7 @@ export class FormSubScreens extends React.Component {
   renderProjectDownloads() {
     var docTitle = this.state.name || t('Untitled');
     return (
-      <DocumentTitle title={`${docTitle} | KoboToolbox`}>
+      <DocumentTitle title={`${docTitle} | ScanCollect`}>
         <ProjectDownloads asset={this.state} />
       </DocumentTitle>
     );

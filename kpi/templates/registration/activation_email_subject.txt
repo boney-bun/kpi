@@ -1,2 +1,1 @@
-{% load i18n %}
-{% trans "Activate your KoBoToolbox Account" %}
+Activa su cuenta de ScanCollect – Powered by ScanTerra

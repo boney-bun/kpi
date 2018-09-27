@@ -144,7 +144,6 @@ class Drawer extends Reflux.Component {
       <bem.Drawer className='k-drawer'>
         <nav className='k-drawer__icons'>
           <DrawerLink label={t('Projects')} linkto='/forms' ki-icon='projects' />
-          <DrawerLink label={t('Library')} linkto='/library' ki-icon='library' />
         </nav>
 
         <div className='drawer__sidebar'>
@@ -162,20 +161,6 @@ class Drawer extends Reflux.Component {
               data-tip={t('Projects (legacy)')}
             >
               <i className='k-icon k-icon-globe' />
-            </a>
-          }
-          { stores.serverEnvironment &&
-            stores.serverEnvironment.state.source_code_url &&
-            <a href={stores.serverEnvironment.state.source_code_url}
-              className='k-drawer__link' target='_blank' data-tip={t('source')}>
-              <i className='k-icon k-icon-github' />
-            </a>
-          }
-          { stores.serverEnvironment &&
-            stores.serverEnvironment.state.support_url &&
-            <a href={stores.serverEnvironment.state.support_url}
-              className='k-drawer__link' target='_blank' data-tip={t('help')}>
-              <i className='k-icon k-icon-help' />
             </a>
           }
         </div>
