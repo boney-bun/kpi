@@ -3,9 +3,7 @@
 {% load i18n %}
 {% block content %}
   <form method="post" action="." class="registration registration--login">
-    <div class="registration--logo"><a href="/">
-    {% block logo %}{{ block.super }}{% endblock %}
-    </a></div>
+    <img style="margin: auto;display: block;" src="{% static 'img/logo-scancollect.png' %}" width="180" height=80"" />
     {% csrf_token %}
     {{ form.as_p }}
     <a href="{% url 'auth_password_reset' %}" class="registration__forgot">
@@ -20,6 +18,9 @@
         {% trans "or" %} <a href="{% url 'registration_register' %}">{% trans "create an account" %}</a>
       </div>
     {% endif %}
+    <div class="registration--logo"><a href="/">
+        Powered by {% block logo %}{{ block.super }}{% endblock %}
+    </a></div>
   </form>
 {% endblock %}
 

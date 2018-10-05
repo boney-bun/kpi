@@ -1,10 +1,8 @@
 ¡Gracias por registrarse en ScanCollect!
 
-La confirmación de su cuenta le dará acceso completo a las aplicaciones de ScanCollect. Visite la siguiente url para finalizar la activación de su nueva cuenta.
+La confirmación de su cuenta le dará acceso completo a las aplicaciones de ScanCollect. Le llegará un mail confirmando la activación de la misma.
 
 {{ user }}
-
-{{ kpi_protocol }}://{{ site.domain }}/accounts/activate/{{activation_key}}/
 
 Visite https://scanterra.com/capacitaciones/ para encontrar información sobre cómo comenzar. Allí también puede publicar preguntas .
 
