@@ -64,14 +64,21 @@ class FormSidebar extends Reflux.Component {
     });
   }
   render () {
+    // const userCanEdit = this.userCan('change_asset', this.props);
+    const userCanEdit = this.userCan('add_collection', this.props);
+    // is_deploy = this.props.hasDeployment;
+    //const isSuperUser = stores.session.currentAccount.is_superuser;
+    var is_submission = this.props.deployment__submission_count > 0 ? true : false;
     return (
-      <bem.FormSidebar__wrapper>
+    <bem.FormSidebar__wrapper>
+      { is_submission &&
         <button onClick={this.newFormModal} className='mdl-button mdl-button--raised mdl-button--colored'>
           {t('new')}
         </button>
-        <SidebarFormsList/>
-      </bem.FormSidebar__wrapper>
-    );
+      }
+      <SidebarFormsList/>
+    </bem.FormSidebar__wrapper>
+  );
   }
   componentWillReceiveProps() {
     this.setStates();
@@ -85,6 +92,8 @@ FormSidebar.contextTypes = {
 
 reactMixin(FormSidebar.prototype, searches.common);
 reactMixin(FormSidebar.prototype, mixins.droppable);
+reactMixin(FormSidebar.prototype, mixins.permissions);
+
 
 class DrawerLink extends React.Component {
   constructor(props) {

@@ -118,6 +118,7 @@ export class FormLanding extends React.Component {
   }
   renderHistory () {
     var dvcount = this.state.deployed_versions.count;
+    const userCanEdit = this.userCan('change_asset', this.state);
     return (
       <bem.FormView__row className={this.state.historyExpanded ? 'historyExpanded' : 'historyHidden'}>
         <bem.FormView__cell m={['columns', 'history-label']}>
@@ -146,14 +147,15 @@ export class FormLanding extends React.Component {
                   <bem.FormView__label m='date'>
                     {formatTime(item.date_deployed)}
                   </bem.FormView__label>
-                  <bem.FormView__label m='clone' className='right-tooltip'>
-                      <bem.FormView__link m='clone'
-                          data-version-id={item.uid}
-                          data-tip={t('Clone this version as a new project')}
-                          onClick={this.saveCloneAs}>
-                        <i className='k-icon-clone' />
-                      </bem.FormView__link>
+                  {userCanEdit && <bem.FormView__label m='clone' className='right-tooltip'>
+                    <bem.FormView__link m='clone'
+                                        data-version-id={item.uid}
+                                        data-tip={t('Clone this version as a new project')}
+                                        onClick={this.saveCloneAs}>
+                      <i className='k-icon-clone'/>
+                    </bem.FormView__link>
                   </bem.FormView__label>
+                  }
                 </bem.FormView__group>
               );
             })}
@@ -343,21 +345,24 @@ export class FormLanding extends React.Component {
           triggerLabel={<i className='k-icon-more' />}
           triggerTip={t('More Actions')}
         >
-          {downloads.map((dl)=>{
-            return (
-                <bem.PopoverMenu__link m={`dl-${dl.format}`} href={dl.url}
-                    key={`dl-${dl.format}`}>
-                  <i className={`k-icon-${dl.format}-file`}/>
-                  {t('Download')}&nbsp;
-                  {dl.format.toString().toUpperCase()}
-                </bem.PopoverMenu__link>
-              );
-          })}
+          {userCanEdit &&
+            downloads.map((dl)=>{
+              return (
+                  <bem.PopoverMenu__link m={`dl-${dl.format}`} href={dl.url}
+                      key={`dl-${dl.format}`}>
+                    <i className={`k-icon-${dl.format}-file`}/>
+                    {t('Download')}&nbsp;
+                    {dl.format.toString().toUpperCase()}
+                  </bem.PopoverMenu__link>
+                );
+            })}
 
-          <bem.PopoverMenu__link href='#pdf' className='is-edge'>
-            <i className='k-icon-pdf'/>
-            {t('Download PDF')}
-          </bem.PopoverMenu__link>
+          {userCanEdit &&
+            <bem.PopoverMenu__link href='#pdf' className='is-edge'>
+              <i className='k-icon-pdf'/>
+              {t('Download PDF')}
+            </bem.PopoverMenu__link>
+          }
 
           {userCanEdit &&
             <bem.PopoverMenu__link onClick={this.sharingModal}>
@@ -366,19 +371,23 @@ export class FormLanding extends React.Component {
             </bem.PopoverMenu__link>
           }
 
-          <bem.PopoverMenu__link onClick={this.saveCloneAs}>
-            <i className='k-icon-clone'/>
-            {t('Clone this project')}
-          </bem.PopoverMenu__link>
+          {userCanEdit &&
+            <bem.PopoverMenu__link onClick={this.saveCloneAs}>
+              <i className='k-icon-clone'/>
+              {t('Clone this project')}
+            </bem.PopoverMenu__link>
+          }
 
-          <bem.PopoverMenu__link
-            onClick={this.cloneAsTemplate}
-            data-asset-uid={this.state.uid}
-            data-asset-name={this.state.name}
-          >
-            <i className='k-icon-template'/>
-            {t('Create template')}
-          </bem.PopoverMenu__link>
+          {userCanEdit &&
+            <bem.PopoverMenu__link
+              onClick={this.cloneAsTemplate}
+              data-asset-uid={this.state.uid}
+              data-asset-name={this.state.name}>
+              <i className='k-icon-template'/>
+              {t('Create template')}
+            </bem.PopoverMenu__link>
+          }
+
           {userCanEdit && this.state.content.survey.length > 0 &&
             <bem.PopoverMenu__link onClick={this.showLanguagesModal}>
               <i className='k-icon-language'/>

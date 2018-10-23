@@ -42,6 +42,16 @@ $headerAccountTextColor: #dbedf7;
     display: block;
   }
 
+  .header-scancollect {
+    height: 40px;
+    background: url("../img/logo-scancollect.png") right bottom;
+    width: 35%;
+    vertical-align: middle;
+    margin: 0px 6px;
+    display: inline-block;
+    position: relative;
+  }
+
   .account-box {
     margin-left: auto;
     position: relative;

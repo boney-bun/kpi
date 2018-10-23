@@ -285,7 +285,8 @@ class AssetRow extends React.Component {
               </bem.AssetRow__actionIcon>
             }
 
-            <bem.AssetRow__actionIcon
+            {userCanEdit &&
+              <bem.AssetRow__actionIcon
                 m='clone'
                 key='clone'
                 data-action='clone'
@@ -293,9 +294,10 @@ class AssetRow extends React.Component {
                 data-asset-type={this.props.kind}
                 data-asset-name={this.props.name}
                 data-disabled={false}
-                >
-              <i className='k-icon-clone' />
-            </bem.AssetRow__actionIcon>
+              >
+                <i className='k-icon-clone'/>
+              </bem.AssetRow__actionIcon>
+            }
 
             { this.props.asset_type &&
               this.props.asset_type === ASSET_TYPES.template.id &&

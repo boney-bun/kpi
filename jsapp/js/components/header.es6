@@ -239,11 +239,13 @@ class MainHeader extends Reflux.Component {
             { this.isFormList() &&
               <div className='mdl-layout__header-searchers'>
                 <ListSearch searchContext={this.state.formFiltersContext} placeholderText={t('Search Projects')} />
+                <span className='header-scancollect'/>
               </div>
             }
             { this.isLibrary() &&
               <div className='mdl-layout__header-searchers'>
                 <ListSearch searchContext={this.state.libraryFiltersContext} placeholderText={t('Search Library')} />
+                <span className='header-scancollect' />
               </div>
             }
             { this.isFormSingle() && this.state.asset &&
