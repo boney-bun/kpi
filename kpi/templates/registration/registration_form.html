@@ -1,10 +1,15 @@
-{% extends "registration.html" %} {% load staticfiles %}
+{% extends "registration.html" %}
+{% load staticfiles %}
 {% load i18n %}
-
+{% load recaptcha2 %}
+{% block head %}
+    {% recaptcha_init %}
+{% endblock %}
 {% block content %}
 <form action="{% url 'set_language' %}" method="post" class="language-switcher">
   {% csrf_token %}
     <input name="next" type="hidden" value="{{ redirect_to }}" />
+    <input type="hidden" name="g-recaptcha" value="{% recaptcha_key %}" />
     <select name="language" onchange="this.form.submit()">
         {% get_current_language as LANGUAGE_CODE %}
         {% get_available_languages as LANGUAGES %}
@@ -47,13 +52,6 @@
       </div>
   </div>
 
-  <!-- div class="registration__second-half">
-      {% if welcome_message %} {{ welcome_message|safe }} {% else %}
-      <p>KoBoToolbox is an integrated set of tools for building forms and collecting interview responses. It is built by the Harvard Humanitarian Initiative for easy and reliable use in difficult field settings, such as humanitarian emergencies or
-          post-conflict environments. <a href="http://www.kobotoolbox.org">Read more</a></p>
-      <p>You can download and install KoBoToolbox on <a href="http://support.kobotoolbox.org/customer/portal/articles/1691108-install-kobotoolbox-on-your-own-server">your own server</a> or <a href="http://support.kobotoolbox.org/customer/portal/articles/1691105-using-kobotoolbox-offline">on your own computer</a>.</p>
-      {% endif %}
-  </div -->
   <div style="clear:both;"></div>
 </form>
 {% endblock %}

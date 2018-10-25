@@ -52,7 +52,8 @@ if os.environ.get('CSRF_COOKIE_DOMAIN'):
     SESSION_COOKIE_NAME = 'kobonaut'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = (os.environ.get('DJANGO_DEBUG', 'True') == 'True')
+# DEBUG = (os.environ.get('DJANGO_DEBUG', 'False') == 'True')
+DEBUG = True
 
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '*').split(' ')
 
@@ -92,6 +93,7 @@ INSTALLED_APPS = (
     'constance',
     'constance.backends.database',
     'guardian', # For access to KC permissions ONLY
+    'snowpenguin.django.recaptcha2',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -396,6 +398,9 @@ CELERYBEAT_SCHEDULE = {
     #    'schedule': timedelta(hours=12)
     #},
 }
+
+RECAPTCHA_PRIVATE_KEY = '6LdvRXUUAAAAAKGKUgTxAcGjC1ESPCtwNhsEX-r7'
+RECAPTCHA_PUBLIC_KEY = '6LdvRXUUAAAAABu0RDupGcVLdehnyQJAT0eGIvby'
 
 if 'KOBOCAT_URL' in os.environ:
     SYNC_KOBOCAT_XFORMS = (os.environ.get('SYNC_KOBOCAT_XFORMS', 'True') == 'True')

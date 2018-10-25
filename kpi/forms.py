@@ -3,7 +3,8 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 from registration import forms as registration_forms
-
+from snowpenguin.django.recaptcha2.fields import ReCaptchaField
+from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
 from kobo.static_lists import SECTORS, COUNTRIES
 
 USERNAME_REGEX = r'^[a-z][a-z0-9_]+$'
@@ -51,6 +52,7 @@ class RegistrationForm(registration_forms.RegistrationForm):
         required=False,
         choices=(('', ''),) + COUNTRIES,
     )
+    captcha = ReCaptchaField(widget=ReCaptchaWidget(attrs={'class':'validate'}), label='')
 
     class Meta:
         model = User
