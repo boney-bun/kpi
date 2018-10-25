@@ -43,12 +43,12 @@ $headerAccountTextColor: #dbedf7;
   }
 
   .header-scancollect {
-    height: 40px;
-    background: url("../img/logo-scancollect.png") right bottom;
-    width: 35%;
-    vertical-align: middle;
+    height: 59px;
+    background: url("../img/logo-scancollect.png") no-repeat right bottom;
+    width: 175px;
+    // vertical-align: middle;
     margin: 0px 6px;
-    display: inline-block;
+    display: block;
     position: relative;
   }
 
